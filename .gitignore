@@ -1,0 +1,11 @@
+# Ignore the virtual environment
+cntmngr/
+
+# Python cache files
+__pycache__/
+*.pyc
+*.pyo
+
+# Ignore IDE or editor files
+.vscode/
+.idea/
