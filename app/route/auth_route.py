@@ -1,5 +1,6 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, g
 from app.controller.auth_controller import AuthController
+from app.middleware.auth_middleware import token_required
 
 authController = AuthController()
 
@@ -20,4 +21,10 @@ def create_password():
 @auth_bp.route('/auth/login', methods=['POST'])
 def loign():
     return authController.login()
+
+@auth_bp.route('/auth/protected', methods=['POST'])
+@token_required
+def protected():
+    print(g.user_id)
+    return jsonify({'message': 'This is a protected route'}), 200
 

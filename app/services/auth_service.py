@@ -17,16 +17,15 @@ class AuthService:
         algorithm = "HS256"
         #create session key
         session_id = self.createSession(id)
-        # json.dumps(session_id, cls=UUIDEncoder)
         token = jwt.encode({'session_id': session_id, 'iat': datetime.now() - timedelta(days=1) }, secret, algorithm=algorithm)
         return token
     
+
     def createSession(self,id):
         cigObject = cig()
         session = cigObject.generate_id()
-        print(session)
         user_session = UserSession(
-            user_id=id, 
+            user_id=id,
             session_key=session,
             )
         user_session.save()
@@ -73,7 +72,8 @@ class AuthService:
                 return False, "Invalid OTP", {}
         else:
             return False, "Please provide otp", {}
-        
+
+
     def create_password(self, data):
         email = data.get('email')
         password = data.get('password')
@@ -96,9 +96,7 @@ class AuthService:
             userDetails = db.session.query(User).filter(User.email == email).first()
             print(userDetails)
             if userDetails and userDetails.check_password(password):
-                print("cindition is true")
                 token = self.generateToken(userDetails.id)
-                print(token)
                 if token:
                     user_session = UserSession.query.filter_by(user_id=userDetails.id).order_by(UserSession.created_on.desc()).first()
                     user_session.access_token = token
@@ -109,3 +107,5 @@ class AuthService:
                     return False, "Invalid Token", {}
             else:
                 return False, "Invalid Email or Password", {}
+            
+            
