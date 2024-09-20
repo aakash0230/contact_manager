@@ -1,5 +1,5 @@
 # Ignore the virtual environment
-cntmngr/
+.venv/
 
 # Python cache files
 __pycache__/
