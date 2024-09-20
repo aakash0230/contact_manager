@@ -9,3 +9,5 @@ __pycache__/
 # Ignore IDE or editor files
 .vscode/
 .idea/
+
+.env
