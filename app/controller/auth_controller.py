@@ -20,7 +20,7 @@ class AuthController:
             status, message, result = authService.verify_otp(data)
             return jsonify({"status" : status, "message" : message, "data" : result})
         except Exception as e:
-            return jsonify({"status" : False, "message" : str(e), "data" : result})
+            return jsonify({"status" : False, "message" : str(e), "data" : {}})
         
     def create_password(self):
         try:
@@ -28,7 +28,7 @@ class AuthController:
             status, message, result = authService.create_password(data)
             return jsonify({"status" : status, "message" : message, "data" : result})
         except Exception as e:
-            return jsonify({"status" : False, "message" : str(e), "data" : result})
+            return jsonify({"status" : False, "message" : str(e), "data" : {}})
         
     def login(self):
         try:
@@ -36,5 +36,5 @@ class AuthController:
             status, message, result = authService.login(data)
             return jsonify({"status" : status, "message" : message, "data" : result})
         except Exception as e:
-            return jsonify({"status" : False, "message" : str(e), "data" : result})
+            return jsonify({"status" : False, "message" : str(e), "data" : {}})
             
