@@ -1,28 +1,30 @@
 .phone-list-container {
     padding: 20px;
+}
 
-    .add-phone-btn {
-        margin-bottom: 15px;
-        padding: 10px 15px;
-        background-color: #28a745; // Green color
-        color: white;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-
-        &:hover {
-            background-color: #218838; // Darker green on hover
-        }
-    }
+.phone-list-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
 
     .search-bar {
-        margin-bottom: 15px;
+        width: 300px;
         padding: 10px;
-        width: 100%;
+        border-radius: 5px;
         border: 1px solid #ccc;
-        border-radius: 4px;
-        font-size: 16px;
+    }
+
+    button {
+        padding: 10px 15px;
+        border: none;
+        background-color: #007bff;
+        color: white;
+        cursor: pointer;
+        border-radius: 5px;
+
+        &:hover {
+            background-color: #0056b3;
+        }
     }
 }
 
@@ -31,26 +33,36 @@
     border-collapse: collapse;
 
     th, td {
-        border: 1px solid #ccc;
-        padding: 10px;
-        text-align: left;
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
     }
 
     th {
-        background-color: #f2f2f2;
+        background-color: #f4f4f4;
     }
-}
 
-.mark-spam-btn {
-    padding: 5px 10px;
-    background-color: #dc3545; // Red color
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+    .mark-spam-btn {
+        background-color: #ff5252;
+        color: white;
+        padding: 5px 10px;
+        border: none;
+        cursor: pointer;
 
-    &:hover {
-        background-color: #c82333; // Darker red on hover
+        &:hover {
+            background-color: #ff1744;
+        }
+    }
+
+    .unmark-spam-btn {
+        background-color: #4caf50;
+        color: white;
+        padding: 5px 10px;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #388e3c;
+        }
     }
 }

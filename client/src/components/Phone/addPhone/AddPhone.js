@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
 import { addPhoneNumber } from '../../../api';
 import './addPhone.scss';
+import { useNavigate } from 'react-router-dom';
 
 const AddPhone = () => {
     const [phoneNumber, setPhoneNumber] = useState('');
     const [name, setName] = useState('');
+    const navigate = useNavigate()
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await addPhoneNumber({ phone_number: phoneNumber, name });
+        const response  = await addPhoneNumber({ phone_number: phoneNumber, name });
+        alert(response.data.message)
+        navigate('/phone-list')
+
     };
 
     return (
