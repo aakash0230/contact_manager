@@ -59,7 +59,7 @@ const PhoneList = () => {
                         <th>Phone Number</th>
                         <th>Name</th>
                         <th>Spam Count</th>
-                        <th>Spam Percentage</th>
+                        <th>Spam Likelihood</th>
                         <th>Action</th>
                     </tr>
                 </thead>
