@@ -14,7 +14,8 @@ class UserPhoneController:
         
     def get_phone_number(self):
         try:
-            status, message, result = userPhoneService.get_phone_number()
+            data = request.get_json()
+            status, message, result = userPhoneService.get_phone_number(data)
             return jsonify({"status" : status, "message" : message, "data" : result})
         except Exception as e:
             return jsonify({"status" : False, "message" : str(e), "data" : {}})
